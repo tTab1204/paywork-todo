@@ -1,7 +1,8 @@
 import React from 'react';
+import storage from 'utils/storage';
 
-function App() {
-  return <div className="App">app</div>;
-}
+const App: React.FC<any> = () => {
+  return <div>app</div>;
+};
 
 export default App;
