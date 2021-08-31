@@ -6,15 +6,18 @@ import { Provider } from 'react-redux';
 import store from 'store';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from './styles/Theme';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <GlobalStyles />
-      <ThemeProvider theme={{ ...Theme }}>
-        <App />
-      </ThemeProvider>
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <GlobalStyles />
+        <ThemeProvider theme={{ ...Theme }}>
+          <App />
+        </ThemeProvider>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );
