@@ -1,6 +1,6 @@
 ## 페이워크 기업 과제(Todo-List)
 - Redux-saga를 이용한 Todo-List
-- 배포링크: redux-saga-todo.netlify.app/
+- 배포링크: https://redux-saga-todo.netlify.app/
 
 ## 현재 문제점
 - 백엔드 부분 배포에 문제가 있어 기능이 정상적으로 작동하지 않습니다.
