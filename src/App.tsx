@@ -27,7 +27,7 @@ const App: React.FC<any> = () => {
   };
 
   const onHandleModal = () => {
-    dispatch(showModal('로그인'));
+    dispatch(showModal());
   };
 
   return (
@@ -35,7 +35,7 @@ const App: React.FC<any> = () => {
       <input value={toastMessage} onChange={onChangeModalInput} />
       <button onClick={onHandleToast}>토스트 띄우기</button>
       <button onClick={onHandleModal}>모달 열기</button>
-      {modal.showModal && <Modal title={modal.title} />}
+      {modal.showModal && <Modal />}
       {toast.showToast && <Toast option={toast.option} />}
     </div>
   );
