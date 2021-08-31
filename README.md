@@ -1,5 +1,5 @@
 ## 페이워크 기업 과제(Todo-List)
-- Redux-saga를 이용한 상태값 저장
+- Redux-saga를 이용한 Todo-List
 - 배포링크: https://modu-todo-list.netlify.app/
 
 ## 현재 문제점
