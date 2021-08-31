@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { closeModal } from 'store/actions/modals_action';
-import './Modal.css';
+import { CloseModalButton, CreateModal } from './style';
+import { closeModal, showModal } from 'store/actions/modals_action';
 
-interface ModalProps {
-  title: string;
-}
-
-const Modal: React.FC<ModalProps> = ({ title }) => {
+const Modal: FC<any> = ({ children }) => {
   const dispatch = useDispatch();
 
-  return (
-    <div className="Modal">
-      <h1>{title}</h1>
+  const stopPropagation = useCallback((e) => {
+    e.stopPropagation();
+  }, []);
 
-      <button onClick={() => dispatch(closeModal())}>닫기</button>
-    </div>
+  const onCloseModal = () => {
+    dispatch(closeModal());
+  };
+
+  return (
+    <CreateModal onClick={onCloseModal}>
+      <div onClick={stopPropagation}>
+        <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>
+        {children}
+      </div>
+    </CreateModal>
   );
 };
 

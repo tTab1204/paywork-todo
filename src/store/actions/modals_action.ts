@@ -1,9 +1,8 @@
 import { SHOW_MODAL, CLOSE_MODAL } from 'store/types';
 
-export const showModal = (title: string) => {
+export const showModal = () => {
   return {
     type: SHOW_MODAL,
-    title,
   };
 };
 
