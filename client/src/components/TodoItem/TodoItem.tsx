@@ -3,7 +3,8 @@ import { CheckOutlined, DeleteOutlined } from '@ant-design/icons';
 import { ITodo } from 'types/todo';
 import { TodoItemBlock, CheckCircle, Text, Remove } from './style';
 import { useDispatch } from 'react-redux';
-import { deleteTodo } from 'store/actions/todo_action';
+import { deleteTodo, toggleTodo } from 'store/actions/todo_action';
+import { showTodos } from 'store/sagas/todos';
 
 interface TodoItemProps {
   todo: ITodo;
@@ -12,8 +13,12 @@ interface TodoItemProps {
 const TodoItem = ({ todo }: TodoItemProps) => {
   const dispatch = useDispatch();
 
-  const handleToggle = (id: number) => {};
+  // Todo 완료 기능
+  const handleToggle = (id: number) => {
+    dispatch(toggleTodo(id));
+  };
 
+  // Todo 삭제 기능
   const deleteTodoItem = (id: number) => {
     dispatch(deleteTodo(id));
   };

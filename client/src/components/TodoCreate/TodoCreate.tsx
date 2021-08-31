@@ -10,6 +10,7 @@ const TodoCreate = () => {
     setValue(e.target.value);
   };
 
+  // Todo 생성 기능
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

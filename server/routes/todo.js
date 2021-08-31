@@ -21,8 +21,28 @@ router.get('/show-todo', (req, res) => {
 router.post('/delete-todo', (req, res) => {
   Todo.findOneAndDelete({ id: req.body.id }).exec((err, deletedId) => {
     if (err) return res.status(400).json({ success: false, err });
-    res.status(200).json({ success: true, deletedId });
+
+    Todo.find().exec((err, todos) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, todos });
+    });
   });
+});
+
+router.post('/toggle-todo', (req, res) => {
+  Todo.findOneAndUpdate(
+    { _id: req.body.id },
+    { $set: { isCheck: true } },
+    { new: true },
+    (err, todo) => {
+      if (err) return res.json({ success: false, err });
+
+      Todo.find().exec((err, todos) => {
+        if (err) return res.status(400).send(err);
+        res.status(200).json({ success: true, todos });
+      });
+    },
+  );
 });
 
 module.exports = router;
