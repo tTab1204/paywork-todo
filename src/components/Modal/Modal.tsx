@@ -10,16 +10,12 @@ const Modal: FC<any> = ({ children }) => {
     e.stopPropagation();
   }, []);
 
-  const onShowModal = () => {
-    dispatch(showModal());
-  };
-
   const onCloseModal = () => {
     dispatch(closeModal());
   };
 
   return (
-    <CreateModal onClick={onShowModal}>
+    <CreateModal onClick={onCloseModal}>
       <div onClick={stopPropagation}>
         <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>
         {children}
