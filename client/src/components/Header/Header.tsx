@@ -18,7 +18,6 @@ const Header = () => {
     <NavbarContainer>
       <NavbarWrapper>
         <LeftBox>
-          sada
           <HomeOutlined />
         </LeftBox>
         <RightBox>

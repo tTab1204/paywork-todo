@@ -2,14 +2,15 @@ import React, { FC } from 'react';
 import Header from 'components/Header/Header';
 import TodoCreate from 'components/TodoCreate/TodoCreate';
 import TodoList from 'components/TodoList/TodoList';
+import { MainContainer } from './style';
 
 const Main: FC<any> = () => {
   return (
-    <div>
+    <MainContainer>
       <Header />
       <TodoCreate />
       <TodoList />
-    </div>
+    </MainContainer>
   );
 };
 

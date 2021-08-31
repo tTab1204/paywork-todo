@@ -1,4 +1,5 @@
 export const SHOW_MODAL = 'show_modal';
 export const CLOSE_MODAL = 'close_modal';
-export const SHOW_TOAST = 'show_toast';
-export const CLOSE_TOAST = 'close_toast';
+export const SHOW_TODOS = 'show_todos';
+export const DELETE_TODOS = 'delete_todos';
+export const UPDATE_TODOS = 'update_todos';
