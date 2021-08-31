@@ -5,9 +5,14 @@ export default function todo_reducer(state = [], action: any) {
     case SHOW_TODOS:
       return { ...state, todos: action.todos };
     case DELETE_TODOS:
-      return { ...state, todos: action.todos };
+      return { ...state, todos: action.todos?.filter((todo: any) => todo._id !== action.id) };
     case TOGGLE_TODOS:
-      return { ...state, todos: action.todos };
+      return {
+        ...state,
+        todos: action.todos?.map((todo: any) =>
+          todo._id === action.id ? { ...todo, isCheck: !todo.isCheck } : todo,
+        ),
+      };
     default:
       return state;
   }

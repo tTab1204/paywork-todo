@@ -16,11 +16,13 @@ const TodoItem = ({ todo }: TodoItemProps) => {
   // Todo 완료 기능
   const handleToggle = (id: number) => {
     dispatch(toggleTodo(id));
+    dispatch(showTodos());
   };
 
   // Todo 삭제 기능
   const deleteTodoItem = (id: number) => {
     dispatch(deleteTodo(id));
+    dispatch(showTodos());
   };
 
   return (
