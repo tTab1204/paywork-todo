@@ -1,5 +1,6 @@
-import { PlusCircleOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import axios from 'axios';
+import { PlusCircleOutlined } from '@ant-design/icons';
 import { InsertFormPositioner, InsertForm, Input, CircleButton } from './style';
 
 const TodoCreate = () => {
@@ -9,8 +10,21 @@ const TodoCreate = () => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const variables = {
+      content: value,
+      isCheck: false,
+    };
+
+    try {
+      const res = await axios.post('/api/todo/create-todo', variables);
+      console.log(res);
+      setValue('');
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
