@@ -1,32 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { TodoListBlock } from './style';
-import { useDispatch } from 'react-redux';
+
+import { useDispatch, useSelector } from 'react-redux';
 import TodoItem from 'components/TodoItem/TodoItem';
 import { showTodos } from 'store/actions/todo_action';
 
 const TodoList = () => {
   const dispatch = useDispatch();
-  const [todos, setTodos] = useState<any>([]);
-
-  const getTodos = () => {
-    dispatch(showTodos());
-  };
+  const todos = useSelector((state: any) => state.todo.todos);
 
   useEffect(() => {
-    axios.get('/api/todo/todo').then((res) => {
-      if (res.data.success) {
-        setTodos(res.data.todos);
-      } else {
-        console.error(res);
-      }
-    });
-  }, []);
+    const loadTodos = async () => {
+      await dispatch(showTodos());
+    };
+
+    dispatch(showTodos());
+    loadTodos();
+  }, [dispatch]);
 
   return (
     <TodoListBlock>
       {todos?.map((todo: any) => (
-        <TodoItem key={todo.id} />
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </TodoListBlock>
   );

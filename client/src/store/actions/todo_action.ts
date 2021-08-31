@@ -1,11 +1,21 @@
-import { SHOW_TODOS } from 'store/types';
-import axios from 'axios';
+import { DELETE_TODOS, SHOW_TODOS, UPDATE_TODOS } from 'store/types';
 
 export const showTodos = () => {
-  const request = axios.get('/api/todo/todo').then((res) => res.data);
-
   return {
     type: SHOW_TODOS,
-    payload: request,
+  };
+};
+
+export const deleteTodo = (id: number) => {
+  return {
+    type: DELETE_TODOS,
+    id,
+  };
+};
+
+export const updateTodo = (id: number) => {
+  return {
+    type: UPDATE_TODOS,
+    id,
   };
 };

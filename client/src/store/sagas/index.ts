@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects';
-import { toast } from './toast';
+import { showTodos, removeTodo } from './todos';
 
 function* rootSaga() {
-  yield all([toast()]);
+  yield all([showTodos(), removeTodo()]);
 }
 
 export default rootSaga;
