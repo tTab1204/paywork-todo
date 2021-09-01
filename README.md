@@ -7,4 +7,5 @@
 - 개발 환경에서 실행할 경우, To-do 삭제, 토글 기능이 정상적으로 작동하지 않습니다. 
 
 ## 설치 및 실행
-`npm install -> npm start` 
+- root 폴더에서 `npm install` 이후 client 폴더에서 `npm install`
+- `npm run dev`로 백엔드, 프론트엔드 
