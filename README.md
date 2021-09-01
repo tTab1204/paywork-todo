@@ -8,4 +8,4 @@
 
 ## 설치 및 실행
 - root 폴더에서 `npm install` 이후 client 폴더에서 `npm install`
-- `npm run dev`로 백엔드, 프론트엔드 
+- `npm run dev`로 서버, 클라이언트 단 동시 실행 가능
